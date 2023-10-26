@@ -1,4 +1,4 @@
-use apriltag::{Detector, Family};
+use apriltag::{Detector};
 use v4l::{Capabilities, Device};
 use v4l::buffer::Type;
 use v4l::io::traits::CaptureStream;
@@ -25,13 +25,9 @@ fn main() {
         .expect("Unable to create stream from capture device");
 
     let Ok(frame) = stream.next() else {
-        println!("Bad result from retrieving next frame")
+        println!("Bad result from retrieving next frame");
+        return;
     };
 
     println!("Frame info [Timestamp: {}, Bytes: {}]", frame.1.timestamp, frame.1.bytesused);
-
-    let apriltag_detector = Detector::builder()
-        .add_family_bits(Family::Tag16h5, 1)
-        .build()
-        .expect("Unable to create an apriltag detector");
 }
