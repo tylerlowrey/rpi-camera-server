@@ -7,3 +7,4 @@ edition = "2021"
 
 [dependencies]
 v4l = "0.14.0"
+apriltag = "0.4.0"
