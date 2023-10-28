@@ -6,5 +6,6 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-v4l = "0.14.0"
+v4l = {  version = "0.14.0", features = ["libv4l"] }
 apriltag = "0.4.0"
+image = "0.24.7"
